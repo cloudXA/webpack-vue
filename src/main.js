@@ -11,6 +11,13 @@
 // 但是功能不完整，只提供了runtime-only的方式，并没有提供像网页中那样的方式
 import Vue from 'vue';
 
+// 导入vue-router包
+import VueRouter from 'vue-router'
+
+// 手动安装VueRouter
+Vue.use(VueRouter)
+
+
 // 等同于路径查找
 // import Vue from '../node_modules/vue/dist/vue.js';
 // 回顾
@@ -25,23 +32,43 @@ import Vue from 'vue';
 // }
 
 // 1.导入login组件【和login.vue相关联🤔】
-import login from './login.vue';
+// import login from './login.vue';
+import app from './App.vue'
+
+// 导入account组件
+
+// 路由嵌套情况下，被封装
+// import account from './main/account.vue'
+// import goodsList from './main/goodsList.vue'
+
+// // 路由
+// var router = new VueRouter({
+//     routes: [
+//         {path: '/account', component: account},
+//         {path: '/goodsList', component: goodsList}
+//     ]
+// })
+
+
+import router from './router.js'
 // 默认，webpack无法打包.vue,需要安装相依你的loader
 // yarn add vue-loader vue-template-compiler -D
 // 在配置文件中，新增loader配置项{test: /.\vue$/, use: 'vue-loader'}
 // 和index.html中的id:app有关😉
+// viewModel
 var vm = new Vue({
     el: '#app',
-    data: {
-        msg: 'msg输出的数据，msg:123'
-    },
+    // data: {
+    //     msg: 'msg输出的数据，msg:123'
+    // },
     // components: {
     //     login
     // }
     // 引用了vue模块，使用vue提供的render函数
     render: function (createElements) {
-        return createElements(login)
-    }
+        return createElements(app)
+    },
+    router
 
     // render: c => c(login)
 })
