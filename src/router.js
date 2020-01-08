@@ -1,27 +1,32 @@
+// 导入vue-router包
 import VueRouter from 'vue-router'
 
 // 导入Account组件
 import account from './main/account.vue'
-import goodslist from './main/goodsList.vue'
+import goodsList from './main/goodsList.vue'
 
-// 导入Account的两个子组件
+// 导入account的俩个子组件
 import login from './subcom/login.vue'
 import register from './subcom/register.vue'
 
-// 创建路由对象
+
+// 手动安装VueRouter
+// Vue.use(VueRouter)
+
+// 设置路由
 var router = new VueRouter({
     routes: [
         {
-            path: '/account',
+            path: '/account', 
             component: account,
-            // 说明在/account路径下面还有login和register
             children: [
-                {path: 'login', component: login},
-                {path: 'register', component: register}
+                { path: 'login', component: login },
+                { path: 'register', component: register }
             ]
         },
-        {path: '/goodslist', component: goodslist}
+        {path: '/goodsList', component: goodsList}
     ]
 })
 
+// 把路由对象暴露出去
 export default router

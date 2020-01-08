@@ -18,6 +18,34 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 
+// 小结: main.js是为了减少HTML页面的二次请求的性能消耗，不同于直接请求，而是基于main.js
+// 的方式，注入到写好的.vue组件中
+
+// 导入boostrap样式
+import 'bootstrap/dist/css/bootstrap.css'
+import './css/app.css'
+
+// 导入mui的样式表，和bootstrap的用法没有差别
+import './mui/css/mui.css'
+
+// 导入所有的mintui组件
+// 导入mint-ui
+// import MintUI from 'mint-ui'//把所有的组件都导入进来
+// 这里可以省略mode_modules这一层目录
+// import 'mint-ui/lib/style.css'
+// 将mintUi安装到vue中
+// Vue.use(MintUI)//把所有的组件注册为全局的组件
+
+// 按需导入mint-ui组件
+import { Button } from 'mint-ui'
+// 使用Vue.component注册按钮组件
+Vue.component(Button.name, Button)
+
+
+
+
+
+
 // 等同于路径查找
 // import Vue from '../node_modules/vue/dist/vue.js';
 // 回顾
@@ -35,9 +63,9 @@ Vue.use(VueRouter)
 // import login from './login.vue';
 import app from './App.vue'
 
+// 被封装在了router，
 // 导入account组件
 
-// 路由嵌套情况下，被封装
 // import account from './main/account.vue'
 // import goodsList from './main/goodsList.vue'
 
@@ -48,9 +76,9 @@ import app from './App.vue'
 //         {path: '/goodsList', component: goodsList}
 //     ]
 // })
-
-
+// 直接引入路由接口
 import router from './router.js'
+
 // 默认，webpack无法打包.vue,需要安装相依你的loader
 // yarn add vue-loader vue-template-compiler -D
 // 在配置文件中，新增loader配置项{test: /.\vue$/, use: 'vue-loader'}
