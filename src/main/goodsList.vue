@@ -1,5 +1,5 @@
-<template>
+<template >
     <div>
-        <h1>这是goodslist组件</h1>
+        <h1>这是Goodlist租金</h1>
     </div>
 </template>

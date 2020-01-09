@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>这是account的登录子组件</h3>
+        <h3>这是Account 的登录子组件</h3>
     </div>
 </template>
 
